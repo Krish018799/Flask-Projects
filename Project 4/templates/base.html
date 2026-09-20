@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Dynamic title block with a default fallback -->
+    <title>{% block title %}Mama's Mamta{% endblock %}</title>
+    
+    <!-- Jinja syntax to link the external CSS dynamically -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <!-- Child pages (Login, Dashboard) will inject their specific cards here -->
+    {% block content %}
+    {% endblock %}
+
+</body>
+</html>

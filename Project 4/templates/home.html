@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard - Mama's Mamta{% endblock %}
+
+{% block content %}
+<div class="dashboard-full">
+    <!-- Header -->
+    <div class="header">
+        <h2>Mama's Mamta</h2>
+        <a href="{{ url_for('logout') }}" class="logout-link">Logout</a>
+    </div>
+
+    <!-- Search Section -->
+    <div class="search-box-orange">
+        <form action="{{ url_for('recipie')}}" method="POST">
+            <p>What do you want to make? (e.g., Paneer Makhani or Pasta)</p>
+
+            <div class="search-bar-row">
+                <input type="text" name="recipe_name" class="search-input" placeholder="Pasta Carbonara" required>
+                <button type="submit" class="search-btn">
+                    <!-- Search Icon SVG -->
+                    <svg width="18" height="18" fill="currentColor" viewBox="0 0 16 16">
+                        <path
+                            d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                    </svg>
+                </button>
+            </div>
+
+            <div class="servings-row">
+                For how many people?
+                <button type="button" class="qty-btn"
+                    onclick="document.getElementById('people-input').stepDown()">-</button>
+                <input type="number" id="people-input" name="people" class="servings-input" value="4" min="1">
+                <button type="button" class="qty-btn"
+                    onclick="document.getElementById('people-input').stepUp()">+</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Results Section -->
+    <div class="cols-container">
+
+        <!-- Left Column: Ingredients -->
+        <div class="col-box">
+            <h3>Scaled Ingredient List:</h3>
+
+            {% if ingredients %}
+            <ul class="ingredient-list">
+                {% for item in ingredients %}
+                <li class="ingredient-item">
+                    <input type="checkbox" id="{{ item }}" name="ingredients" value="{{ item }}">
+                    <label for="{{ item }}">{{ item }}</label>
+                </li>
+                {% endfor %}
+            </ul>
+            {% else %}
+            <ul class="ingredient-list">
+                <li class="ingredient-item" style="color: #8caba1;">No ingredients found for this recipe. Search above
+                    to begin.</li>
+            </ul>
+            {% endif %}
+        </div>
+
+        <!-- Right Column: Grocery Comparison -->
+        <div class="col-box">
+            <h3>Lowest Price Grocery Comparison (Ahmedabad):</h3>
+
+            <div class="stores-container">
+                <div class="store">
+                    <span class="best-price-badge">BEST PRICE</span>
+                    <div class="store-logo" style="background-color: #f6e58d;">blinkit</div>
+                    <span>Total cart<br><strong>₹359</strong></span>
+                </div>
+
+                <div class="store">
+                    <div class="store-logo" style="background-color: #68007a; color: white;">zepto</div>
+                    <span style="margin-top: 15px;">Total cart<br><strong>₹401</strong></span>
+                </div>
+
+                <div class="store">
+                    <div class="store-logo" style="background-color: #badc58;">bb</div>
+                    <span style="margin-top: 15px;">BigBasket<br><strong>₹415</strong></span>
+                </div>
+            </div>
+
+            <button class="export-btn">EXPORT TO BLINKIT CART</button>
+        </div>
+    </div>
+</div>
+{% endblock %}
