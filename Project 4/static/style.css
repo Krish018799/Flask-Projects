@@ -1,0 +1,263 @@
+/* --- BASE RESET --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f4f0e6; /* Cream background for auth pages */
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 40px 20px; 
+}
+
+/* --- LOGIN & REGISTER CARDS --- */
+.card {
+    background-color: #1c3327; 
+    color: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    width: 100%;
+    max-width: 400px; 
+}
+
+.card h2 { margin-bottom: 5px; color: #eab059; }
+.card p { margin-bottom: 20px; font-size: 0.9em; color: #ccc; }
+.form-group { margin-bottom: 15px; }
+.form-group label { display: block; margin-bottom: 5px; font-size: 0.9em; }
+.form-group input { width: 100%; padding: 10px; border-radius: 6px; border: none; outline: none; }
+.btn { width: 100%; padding: 10px; background-color: #eab059; color: #1c3327; border: none; border-radius: 6px; font-weight: bold; cursor: pointer; margin-top: 10px; transition: background 0.3s; }
+.btn:hover { background-color: #d49c4a; }
+.links { margin-top: 15px; text-align: center; font-size: 0.85em; }
+.links a { color: #eab059; text-decoration: none; }
+
+/* --- FULL SCREEN DASHBOARD LAYOUT --- */
+.dashboard-full {
+    position: absolute; /* Snaps this container over the cream body */
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 100vh;
+    background-color: #1c3327; /* Dark Green */
+    padding: 40px 6vw; /* Responsive edge padding */
+    color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+.dashboard-full .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.dashboard-full .header h2 { color: #eab059; }
+.dashboard-full .logout-link { color: #eab059; text-decoration: none; font-weight: 500; }
+
+/* Search Box */
+.search-box-orange {
+    background-color: #d49c4a;
+    border-radius: 16px;
+    padding: 30px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.search-bar-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.search-input {
+    width: 60%;
+    padding: 14px 20px;
+    border: none;
+    border-radius: 30px 0 0 30px; /* Left pill shape */
+    font-size: 1em;
+    outline: none;
+}
+
+.search-btn {
+    padding: 14px 20px;
+    border: none;
+    background-color: white;
+    border-radius: 0 30px 30px 0; /* Right pill shape */
+    cursor: pointer;
+    color: #d49c4a;
+    display: flex;
+    align-items: center;
+}
+
+.servings-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    color: white;
+    font-weight: 500;
+}
+
+.qty-btn {
+    background-color: white; color: #d49c4a; border: none;
+    width: 32px; height: 32px; border-radius: 6px;
+    font-size: 1.2em; font-weight: bold; cursor: pointer;
+}
+
+.servings-input {
+    width: 50px; text-align: center; border: none; padding: 8px; border-radius: 6px; font-weight: bold; color: #333;
+}
+
+/* Results Columns */
+.cols-container {
+    display: flex;
+    gap: 30px;
+    flex: 1; /* Pushes content down to fill height */
+}
+
+.col-box {
+    flex: 1;
+    border: 1px solid #334d3e;
+    border-radius: 12px;
+    padding: 30px;
+    background-color: transparent;
+}
+
+.col-box h3 {
+    color: white;
+    font-size: 1.1em;
+    margin-bottom: 25px;
+}
+
+.ingredient-list { list-style: none; padding: 0; }
+.ingredient-item { display: flex; gap: 12px; align-items: center; margin-bottom: 15px; color: #e2e8f0; font-size: 0.95em; }
+
+/* Grocery UI Mockup */
+.stores-container { display: flex; justify-content: space-around; text-align: center; margin-bottom: 30px; }
+.store { display: flex; flex-direction: column; align-items: center; gap: 8px; font-size: 0.9em; }
+.store-logo { width: 60px; height: 60px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-weight: bold; color: #1c3327; }
+.best-price-badge { background-color: #27ae60; color: white; font-size: 0.7em; padding: 3px 8px; border-radius: 10px; font-weight: bold; margin-bottom: -5px; }
+
+.export-btn { width: 100%; padding: 16px; background-color: #d49c4a; color: #1c3327; border: none; border-radius: 30px; font-weight: bold; cursor: pointer; letter-spacing: 0.5px; }
+
+
+/* --- PRE-LOGIN LANDING PAGE (dashboard.html) --- */
+
+.landing-full {
+    position: absolute; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 100vh;
+    background-color: #1c3327; /* Matches your dark green theme */
+    padding: 40px 8vw; /* Pushes content inwards nicely */
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; /* Prevents horizontal scrollbar from the slider */
+}
+
+/* Header & Nav */
+.landing-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 80px; /* Space between header and text */
+}
+
+.landing-header h2 {
+    color: #eab059;
+    font-size: 1.8em;
+}
+
+.landing-nav {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.landing-nav .nav-link {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1em;
+    transition: color 0.3s;
+}
+
+.landing-nav .nav-link:hover {
+    color: #eab059;
+}
+
+.btn-signup {
+    background-color: #eab059;
+    color: #1c3327;
+    text-decoration: none;
+    padding: 10px 24px;
+    border-radius: 25px; /* Pill-shaped button */
+    font-weight: bold;
+    font-size: 1.1em;
+    transition: background 0.3s;
+}
+
+.btn-signup:hover {
+    background-color: #d49c4a;
+}
+
+/* Hero Section (Split Layout) */
+.hero-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+    flex: 1; /* Pushes the hero to vertically center if needed */
+}
+
+/* Left Typography */
+.hero-text {
+    flex: 1.2;
+    text-align: left;
+}
+
+.hero-text h1 {
+    color: #d1d5db; /* Slightly dimmed white to match your screenshot */
+    font-size: 3.2em;
+    font-weight: 400; /* Regular weight */
+    line-height: 1.3;
+    margin-bottom: 10px;
+}
+
+.hero-text h2 {
+    color: white;
+    font-size: 3.2em;
+    font-weight: 700; /* Bold weight */
+}
+
+/* Right Image Slider */
+.hero-slider {
+    flex: 1;
+    position: relative;
+    max-width: 500px; 
+    height: 380px; 
+    border-radius: 24px; /* Soft rounded corners on the image block */
+    overflow: hidden; /* Masks the sliding images so they don't bleed out */
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+}
+
+.slide-track {
+    display: flex;
+    /* Remove the hardcoded width and animation */
+    transition: transform 0.8s ease-in-out; /* Controls the slide speed */
+}
+
+.slide-track img {
+    width: 500px;
+    height: 380px;
+    object-fit: cover;
+    flex-shrink: 0; /* Prevents images from squeezing together */
+}
